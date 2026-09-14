@@ -7,7 +7,7 @@ export function Invitation() {
 
   return (
     <section
-      className="relative flex min-h-[820px] w-full items-start justify-center overflow-hidden bg-[#fbf5e9] bg-[length:100%_100%] bg-top bg-no-repeat px-10 pb-24 pt-24 sm:min-h-[900px] sm:px-16 sm:pt-28 md:min-h-[980px] md:pt-32"
+      className="relative flex min-h-[820px] w-full items-start justify-center overflow-hidden bg-[#fbf5e9] bg-auto bg-top bg-no-repeat px-10 pb-24 pt-24 sm:min-h-[900px] sm:px-16 sm:pt-28 md:min-h-[980px] md:pt-32"
       style={{
         backgroundImage: `url(${import.meta.env.BASE_URL}images/invitation-floral-arch.png)`,
       }}
@@ -81,7 +81,7 @@ export function Invitation() {
           <h2 className="font-display text-5xl leading-none text-primary drop-shadow-sm md:text-7xl">
             {weddingDetails.brideName}
           </h2>
-          <p className="relative z-20 mt-3 max-w-[15rem] rounded-full bg-[#fbf5e9]/90 px-4 py-1.5 font-serif text-[10px] leading-relaxed tracking-wide text-foreground/70 shadow-[0_2px_10px_rgba(74,13,16,0.08)] backdrop-blur-[2px] md:max-w-xs md:text-xs">
+          <p className="relative z-20 mt-3 max-w-[15rem] font-serif text-[10px] leading-relaxed tracking-wide text-foreground/70 md:max-w-xs md:text-xs">
             Daughter of Mr. Sandeep Mehendale &amp; Mrs. Kalpana Mehendale
           </p>
 
