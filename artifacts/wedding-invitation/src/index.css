@@ -1,0 +1,164 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-card-border: hsl(var(--card-border));
+
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-popover-border: hsl(var(--popover-border));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-primary-border: var(--primary-border);
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-secondary-border: var(--secondary-border);
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-muted-border: var(--muted-border);
+
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-accent-border: var(--accent-border);
+
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-destructive-border: var(--destructive-border);
+
+  --font-sans: var(--app-font-sans);
+  --font-serif: var(--app-font-serif);
+  --font-display: var(--app-font-display);
+  --font-devanagari: var(--app-font-devanagari);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --app-font-sans: 'Lora', serif;
+  --app-font-serif: 'Cinzel', serif;
+  --app-font-display: 'Great Vibes', cursive;
+  --app-font-devanagari: 'Yatra One', serif;
+  
+  --background: 35 60% 96%; /* Ivory Sand #fcf7f1 */
+  --foreground: 355 70% 15%; /* Deep maroon text #4a0d10 */
+  
+  --border: 46 30% 80%; /* Light gold/sand border */
+  --input: 46 30% 80%;
+  --ring: 46 65% 53%; /* Gold ring #D4AF37 */
+
+  --card: 35 60% 98%; /* Lighter ivory for cards */
+  --card-foreground: 355 70% 15%;
+  --card-border: 46 30% 80%;
+
+  --popover: 35 60% 98%;
+  --popover-foreground: 355 70% 15%;
+  --popover-border: 46 30% 80%;
+
+  --primary: 355 100% 32%; /* Ceremonial Red #a40000 */
+  --primary-foreground: 35 100% 96%;
+  
+  --secondary: 15 50% 85%; /* Blush/peach #f2d1c4 */
+  --secondary-foreground: 355 70% 15%;
+
+  --muted: 35 40% 90%;
+  --muted-foreground: 355 30% 40%;
+
+  --accent: 46 65% 53%; /* Gold #D4AF37 */
+  --accent-foreground: 35 100% 98%;
+
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif tracking-wide;
+  }
+}
+
+.font-devanagari {
+  font-family: var(--app-font-devanagari);
+}
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, #D4AF37 0%, #B58500 50%, #997A15 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.bg-gradient-gold {
+  background: linear-gradient(135deg, #FFE58F 0%, #D4AF37 50%, #997A15 100%);
+}
+
+.border-gradient-gold {
+  border-image: linear-gradient(135deg, #FFE58F 0%, #D4AF37 50%, #997A15 100%) 1;
+}
+
+/* Gold glint sweep across display-font names (mobile micro-interaction).
+   The ::after clone carries a moving gradient clipped to the text. */
+.shimmer-text {
+  position: relative;
+  display: inline-block;
+}
+.shimmer-text::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    110deg,
+    transparent 38%,
+    rgba(255, 236, 175, 0.95) 50%,
+    transparent 62%
+  );
+  background-size: 250% 100%;
+  background-position: 130% 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  pointer-events: none;
+  animation: gold-glint 7s ease-in-out infinite;
+}
+@keyframes gold-glint {
+  0%,
+  55% {
+    background-position: 130% 0;
+  }
+  80%,
+  100% {
+    background-position: -30% 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .shimmer-text::after {
+    display: none;
+  }
+}
+

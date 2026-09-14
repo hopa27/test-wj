@@ -1,0 +1,8 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "ZNsvwDs2x4viZ7S3NbfFW"
+uri = "file://artifacts/wedding-invitation/public/audio/ambient.mp3"
+type = "audio"
+title = "wedding ambient"
