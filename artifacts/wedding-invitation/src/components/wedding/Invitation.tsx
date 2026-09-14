@@ -81,7 +81,7 @@ export function Invitation() {
           <h2 className="font-display text-5xl leading-none text-primary drop-shadow-sm md:text-7xl">
             {weddingDetails.brideName}
           </h2>
-          <p className="mt-2 max-w-xs font-serif text-[10px] leading-relaxed tracking-wide text-foreground/60 md:text-xs">
+          <p className="relative z-20 mt-3 max-w-[15rem] rounded-full bg-[#fbf5e9]/90 px-4 py-1.5 font-serif text-[10px] leading-relaxed tracking-wide text-foreground/70 shadow-[0_2px_10px_rgba(74,13,16,0.08)] backdrop-blur-[2px] md:max-w-xs md:text-xs">
             Daughter of Mr. Sandeep Mehendale &amp; Mrs. Kalpana Mehendale
           </p>
 
