@@ -1,2 +1,3 @@
 - [Fade-in classes break reveal](tw-animate-fade-bug.md) — `opacity-0 animate-in fade-in ... fill-mode-forwards` never fires in this project; content stays invisible. Use framer-motion fades.
 - [Google Sheet CSV in browser](google-sheet-csv-cors.md) — use gviz/tq?tqx=out:csv, not /export?format=csv (307 redirect breaks browser CORS).
+- [Imported Git history gaps](imported-git-history-gaps.md) — an imported shallow/grafted history may lack objects and fail its first push; preserve it, then publish a clean root snapshot.
