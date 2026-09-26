@@ -8,3 +8,5 @@ An imported or grafted repository can have a usable current tree but incomplete 
 **Why:** Reconnecting HTTPS credentials and switching to a repository-scoped SSH deploy key fixed authentication, but the push still failed during remote unpack because an old object was absent locally. A root snapshot removed the broken ancestry while preserving every current project file.
 
 **How to apply:** First verify through the provider API that the remote is actually empty. Preserve the old branch before changing history. Use a repository-scoped deploy key only when normal account authentication remains unavailable, and keep its private key outside tracked project files.
+
+Repository-scoped SSH keys stored outside the workspace may not survive a later environment session. Before relying on an SSH remote for a routine push, check whether its configured key still exists. Do not claim that a local commit reached GitHub merely because the commit succeeded.
