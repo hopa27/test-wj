@@ -46,5 +46,5 @@ export const weddingDetails = {
   // tasteful placeholder frames.
   galleryPhotos: [] as { src: string; alt: string }[],
   closingMessage: "Surrounded by family and friends, we can't wait to celebrate this beautiful moment with you.",
-  closingRegards: "Mr Sandeep Mehendale & Mrs Kalpana Mehendale",
+  closingRegards: "Mr Sandeep Mehendale\n& Mrs Kalpana Mehendale",
 };

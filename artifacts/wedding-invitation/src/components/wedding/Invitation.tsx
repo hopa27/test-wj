@@ -82,7 +82,8 @@ export function Invitation() {
             {weddingDetails.brideName}
           </h2>
           <p className="relative z-20 mt-3 max-w-[15rem] font-serif text-[10px] leading-relaxed tracking-wide text-foreground/70 md:max-w-xs md:text-xs">
-            Daughter of Mr. Sandeep Mehendale &amp; Mrs. Kalpana Mehendale
+            Daughter of Mr. Sandeep Mehendale
+            <span className="block">&amp; Mrs. Kalpana Mehendale</span>
           </p>
 
           <span className="my-4 font-display text-3xl text-accent">&</span>
@@ -91,7 +92,8 @@ export function Invitation() {
             {weddingDetails.groomName}
           </h2>
           <p className="mt-2 max-w-xs font-serif text-[10px] leading-relaxed tracking-wide text-foreground/60 md:text-xs">
-            Son of Mr. Goutam Saha and Mrs. Rumu Saha
+            Son of Mr. Goutam Saha
+            <span className="block">&amp; Mrs. Rumu Saha</span>
           </p>
         </div>
       </motion.div>
