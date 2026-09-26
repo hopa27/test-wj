@@ -5,7 +5,7 @@ export const weddingDetails = {
   dateISO: "2027-03-01T09:00:00+05:30",
   shloka: "|| वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ।\nनिर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा ||",
   events: [
-    { name: "Haldi", time: "9:00 AM", date: "Feb 28", day: "Sunday", location: "Hotel Miracle, Ujjain" },
+    { name: "Haldi", time: "10:00 AM", date: "Feb 28", day: "Sunday", location: "Hotel Miracle, Ujjain" },
     { name: "Sangeet", time: "7:00 PM", date: "Feb 28", day: "Sunday", location: "Hotel Miracle, Ujjain" },
     { name: "Wedding Ceremony", time: "10:45 AM", date: "Mar 1", day: "Monday", location: "Hotel Miracle, Ujjain" },
     { name: "Reception", time: "7:00 PM", date: "Mar 1", day: "Monday", location: "Hotel Miracle, Ujjain" },

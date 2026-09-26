@@ -174,7 +174,15 @@ export function ScratchDate({ onRevealed }: { onRevealed?: () => void }) {
     };
 
     let lastPoint: { x: number; y: number } | null = null;
-    let strokeCount = 0;
+    let strokeDistance = 0;
+    let revealed = false;
+
+    const reveal = () => {
+      if (revealed) return;
+      revealed = true;
+      setIsRevealed(true);
+      onRevealed?.();
+    };
 
     /**
      * Dry paint-brush stroke: a ragged core plus long bristle streaks
@@ -231,6 +239,7 @@ export function ScratchDate({ onRevealed }: { onRevealed?: () => void }) {
         const dx = x - lastPoint.x;
         const dy = y - lastPoint.y;
         const dist = Math.hypot(dx, dy);
+        strokeDistance += dist;
         const angle = Math.atan2(dy, dx);
         const steps = Math.max(1, Math.floor(dist / 6));
         for (let i = 1; i <= steps; i++) {
@@ -240,35 +249,12 @@ export function ScratchDate({ onRevealed }: { onRevealed?: () => void }) {
         stampBrush(x, y);
       }
       lastPoint = { x, y };
-
-      // Checking pixels is expensive — do it every few stamps, not every move
-      strokeCount++;
-      if (strokeCount % 6 === 0) checkScratched();
-    };
-
-    let revealed = false;
-    const checkScratched = () => {
-      if (revealed) return;
-      const pixels = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
-      let transparent = 0;
-      let sampled = 0;
-      // Sample every 4th pixel — plenty accurate, 4x cheaper
-      for (let i = 3; i < pixels.length; i += 16) {
-        if (pixels[i] < 40) transparent++;
-        sampled++;
-      }
-
-      const percent = (transparent / sampled) * 100;
-      if (percent > 40) {
-        revealed = true;
-        setIsRevealed(true);
-        onRevealed?.();
-      }
     };
 
     const handleDown = (e: MouseEvent | TouchEvent) => {
       isDrawing.current = true;
       lastPoint = null;
+      strokeDistance = 0;
       const { x, y } = getCoordinates(e);
       scratch(x, y);
     };
@@ -281,9 +267,11 @@ export function ScratchDate({ onRevealed }: { onRevealed?: () => void }) {
     };
 
     const handleUp = () => {
+      if (!isDrawing.current) return;
       isDrawing.current = false;
       lastPoint = null;
-      checkScratched();
+      // One deliberate stroke opens the card; a stray tap does not.
+      if (strokeDistance >= 24) reveal();
     };
 
     canvas.addEventListener('mousedown', handleDown);
