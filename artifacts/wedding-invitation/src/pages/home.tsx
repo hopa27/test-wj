@@ -52,11 +52,6 @@ export function Home() {
                 />
                 <Timeline />
                 <RsvpCard />
-                <PhotoInterlude
-                  src="images/couple-lotus.png"
-                  alt="Juhi and Shubhojit resting together among lotus flowers"
-                  framed
-                />
                 <Venue />
                 <Closing />
               </motion.div>

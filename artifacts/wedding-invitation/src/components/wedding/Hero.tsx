@@ -29,7 +29,7 @@ export function Hero() {
   return (
     <section className="relative h-[100svh] min-h-[640px] w-full overflow-hidden bg-[#3a1713]" aria-label="Wedding introduction">
       <img
-        src={`${import.meta.env.BASE_URL}images/hero-couple-temple.png`}
+        src={`${import.meta.env.BASE_URL}images/hero-couple-temple.jpg`}
         alt="Juhi and Shubhojit in wedding attire at a temple by the water"
         className="absolute inset-0 h-full w-full object-cover object-center"
       />

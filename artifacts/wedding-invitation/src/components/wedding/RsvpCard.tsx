@@ -8,13 +8,11 @@ const STORAGE_KEY = 'wedding-rsvp-submitted';
 
 const rsvp = weddingDetails.rsvpForm;
 const GUEST_OPTIONS = rsvp.guestOptions;
-const EVENT_OPTIONS = rsvp.eventOptions;
 
 type RsvpData = {
   name: string;
   attending: string; // exact Google Form option value
   guests: string;
-  event: string;
   contact: string;
 };
 
@@ -23,7 +21,9 @@ async function submitToGoogleForm(data: RsvpData) {
   params.append(rsvp.entries.name, data.name);
   params.append(rsvp.entries.attending, data.attending);
   params.append(rsvp.entries.guests, data.guests);
-  params.append(rsvp.entries.events, data.event);
+  // Keep the existing Google Form's event field compatible without asking
+  // guests to choose ceremonies. "All events" was already the default.
+  params.append(rsvp.entries.events, rsvp.eventOptions[0]);
   params.append(rsvp.entries.contact, data.contact);
 
   await fetch(`https://docs.google.com/forms/d/e/${rsvp.formId}/formResponse`, {
@@ -41,7 +41,6 @@ export function RsvpCard() {
   const [name, setName] = useState('');
   const [attending, setAttending] = useState('');
   const [guests, setGuests] = useState('1');
-  const [event, setEvent] = useState(EVENT_OPTIONS[0]);
   const [contact, setContact] = useState('');
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -80,7 +79,6 @@ export function RsvpCard() {
         name: name.trim(),
         attending,
         guests,
-        event,
         contact: contact.trim(),
       });
       try {
@@ -198,7 +196,6 @@ export function RsvpCard() {
                     setName('');
                     setAttending('');
                     setGuests('1');
-                    setEvent(EVENT_OPTIONS[0]);
                     setContact('');
                     setSubmitted(false);
                   }}
@@ -287,31 +284,6 @@ export function RsvpCard() {
                           </option>
                         ))}
                       </select>
-                </div>
-
-                <div>
-                      <label className="block font-serif text-sm text-[#4a0d10]/80 mb-1.5">
-                        Which समारोह will you be attending?
-                      </label>
-                      <div className="flex flex-wrap gap-2">
-                        {EVENT_OPTIONS.map((ev) => {
-                          const active = event === ev;
-                          return (
-                            <button
-                              key={ev}
-                              type="button"
-                              onClick={() => setEvent(ev)}
-                              className={`rounded-full border px-4 py-2 font-sans text-sm transition motion-safe:active:scale-[0.96] ${
-                                active
-                                  ? 'border-[#B31217] bg-[#B31217]/10 text-[#B31217] font-medium'
-                                  : 'border-[#D4AF37]/40 bg-white/60 text-[#4a0d10]/60 hover:border-[#D4AF37]/70'
-                              }`}
-                            >
-                              {ev}
-                            </button>
-                          );
-                        })}
-                      </div>
                 </div>
 
                 {error && (

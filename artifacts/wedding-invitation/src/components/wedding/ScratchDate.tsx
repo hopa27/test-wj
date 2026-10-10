@@ -324,7 +324,7 @@ export function ScratchDate({ onRevealed }: { onRevealed?: () => void }) {
 
             {/* Content revealed beneath */}
             <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center bg-card">
-              <p className="font-serif text-3xl text-gradient-gold mb-1">{weddingDetails.date}</p>
+              <p className="font-serif text-3xl text-primary mb-1">{weddingDetails.date}</p>
               <p className="font-serif text-sm uppercase tracking-[0.2em] text-foreground/70">Monday</p>
             </div>
 

@@ -8,10 +8,7 @@
 
 // Images visible in the hero and first sections right after opening.
 const CRITICAL_IMAGES = [
-  'images/hero-redesign/mahakal-background.jpg',
-  'images/hero-redesign/floral-arch_2.png',
-  'images/hero-redesign/couple_2.png',
-  'images/hero-redesign/bottom-foreground.png',
+  'images/hero-couple-temple.jpg',
   'images/wedding-logo.webp',
   'images/ganesha.webp',
   'images/mandala.webp',

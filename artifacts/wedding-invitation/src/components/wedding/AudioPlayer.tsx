@@ -13,7 +13,7 @@ export function AudioPlayer({ play }: AudioPlayerProps) {
     // Lazily create the audio element only when playback is first requested,
     // so the music file doesn't download during initial page load.
     if (!audioRef.current && play) {
-      const audioUrl = `${import.meta.env.BASE_URL}audio/wedding-music.mp3`;
+      const audioUrl = `${import.meta.env.BASE_URL}audio/tere-hawale.mp3`;
       const audio = new Audio();
       audio.preload = 'none';
       audio.src = audioUrl;
