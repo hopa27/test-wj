@@ -114,10 +114,6 @@ export function RsvpCard() {
       <div className="absolute top-0 left-0 -translate-y-1/2 -translate-x-1/4 pointer-events-none opacity-20" aria-hidden>
         <Mandala variant="full" className="w-[420px]" />
       </div>
-      <div className="absolute bottom-0 right-0 translate-y-1/2 translate-x-1/4 pointer-events-none opacity-20">
-        <Mandala variant="full" className="w-[420px]" />
-      </div>
-
       <div className="max-w-xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 24 }}

@@ -8,7 +8,7 @@ import { OrnamentalDivider } from './OrnamentalDivider';
 export function Venue() {
   return (
     <section
-      className="py-24 px-6 relative overflow-hidden flex justify-center"
+      className="py-24 px-6 relative flex justify-center"
       style={{
         background:
           'linear-gradient(180deg, #FBF6EF 0%, #F4E7CE 30%, #D9B98F 55%, #8C4A3C 78%, #4A0D10 92%, #34080A 100%)',
@@ -22,8 +22,9 @@ export function Venue() {
             'radial-gradient(ellipse at 50% 40%, rgba(212,175,55,0.10) 0%, rgba(212,175,55,0.04) 45%, transparent 75%)',
         }}
       />
-      {/* Continuation of the photo section's bottom-left mandala across the seam */}
-      <div className="absolute top-0 left-0 -translate-y-1/2 -translate-x-1/4 pointer-events-none opacity-20" aria-hidden>
+      {/* One complete mandala spans RSVP and Venue; the shared wrapper clips
+          only the outside edges, never this section boundary. */}
+      <div className="absolute top-0 right-0 z-[1] -translate-y-1/2 translate-x-1/4 pointer-events-none opacity-20" aria-hidden>
         <Mandala variant="full" className="w-[420px]" />
       </div>
       {/* Mandala straddling the bottom edge — its other half continues in the section below */}

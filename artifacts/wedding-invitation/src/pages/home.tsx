@@ -51,8 +51,10 @@ export function Home() {
                   alt="Juhi and Shubhojit celebrating in a heritage courtyard"
                 />
                 <Timeline />
-                <RsvpCard />
-                <Venue />
+                <div className="relative isolate overflow-hidden">
+                  <RsvpCard />
+                  <Venue />
+                </div>
                 <Closing />
               </motion.div>
             )}
