@@ -104,6 +104,7 @@ import { weddingDetails } from '../../lib/weddingDetails';
 import { OrnamentalDivider } from './OrnamentalDivider';
 
 export function ScratchDate({ onRevealed }: { onRevealed?: () => void }) {
+  const dateParts = weddingDetails.date.match(/^(\d+)(st|nd|rd|th)(.*)$/i);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [isRevealed, setIsRevealed] = useState(false);
@@ -324,7 +325,13 @@ export function ScratchDate({ onRevealed }: { onRevealed?: () => void }) {
 
             {/* Content revealed beneath */}
             <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center bg-card">
-              <p className="font-serif text-3xl text-primary mb-1">{weddingDetails.date}</p>
+              <p className="font-serif text-3xl text-primary mb-1">
+                {dateParts ? (
+                  <>
+                    {dateParts[1]}<sup className="font-sans text-[0.5em] lowercase">{dateParts[2].toLowerCase()}</sup>{dateParts[3]}
+                  </>
+                ) : weddingDetails.date}
+              </p>
               <p className="font-serif text-sm uppercase tracking-[0.2em] text-foreground/70">Monday</p>
             </div>
 

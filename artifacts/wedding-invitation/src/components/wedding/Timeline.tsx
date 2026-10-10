@@ -213,7 +213,7 @@ export function Timeline() {
                   <div className="space-y-3">
                     <div className="flex items-center text-foreground/80 gap-3">
                       <CalendarClock className="w-4 h-4" style={{ color: EVENT_THEMES[index % EVENT_THEMES.length].accent }} />
-                      <span className="text-sm tracking-wide uppercase">{event.day}, {event.date} • <strong className="font-bold">{event.time}</strong></span>
+                      <span className="text-sm tracking-wide">{event.day}, {event.date}, <strong className="font-bold">{event.time}</strong></span>
                     </div>
 
                     <div className="flex items-center text-foreground/80 gap-3">
