@@ -166,7 +166,7 @@ export function Closing() {
             {weddingDetails.closingMessage}
           </p>
           <p className="font-serif text-sm text-accent/90 mb-6 whitespace-pre-line">
-            Regards, {weddingDetails.closingRegards}
+            Regards, <strong className="font-bold">{weddingDetails.closingRegards}</strong>
           </p>
 
           <p className="font-serif tracking-[0.2em] text-accent text-sm uppercase">
