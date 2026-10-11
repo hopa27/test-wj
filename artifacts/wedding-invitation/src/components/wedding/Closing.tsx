@@ -173,9 +173,8 @@ export function Closing() {
           <p className="font-serif tracking-[0.2em] text-accent text-sm uppercase">
             With Love
           </p>
-          <p className="font-display text-5xl text-gradient-gold mt-4 py-2 ml-[-31px]">
-            {weddingDetails.brideName} &<br />
-            <span className="inline-block pl-16">{weddingDetails.groomName}</span>
+          <p className="font-display text-3xl sm:text-4xl text-gradient-gold mt-4 py-2 max-w-md mx-auto">
+            Mrs. &amp; Mr. Kalpana Sandeep Mehendale
           </p>
           
           <OrnamentalDivider className="w-[200px] mx-auto text-accent/50 mt-5 mb-5" />
