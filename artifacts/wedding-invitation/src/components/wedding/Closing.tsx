@@ -173,8 +173,8 @@ export function Closing() {
           <p className="font-serif tracking-[0.2em] text-accent text-sm uppercase">
             With Love
           </p>
-          <p className="font-display text-3xl sm:text-4xl text-gradient-gold mt-4 py-2 max-w-md mx-auto">
-            Mrs. &amp; Mr. Kalpana Sandeep Mehendale
+          <p className="font-serif text-sm text-accent/90 mt-4 py-2 max-w-md mx-auto">
+            <strong className="font-bold">Mrs. &amp; Mr. Kalpana Sandeep Mehendale</strong>
           </p>
           
           <OrnamentalDivider className="w-[200px] mx-auto text-accent/50 mt-5 mb-5" />
